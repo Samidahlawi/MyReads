@@ -5,7 +5,11 @@ This is the starter template for the final assessment project for Udacity's Reac
 Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
 
 ## TL;DR
+First clone the project 
+open your terminal then write
 
+    git clone https://github.com/wh0-1-am/MyReads.git
+    
 To get started developing right away:
 
 * install all project dependencies with `npm install`
@@ -33,7 +37,6 @@ To get started developing right away:
     └── index.js # You should not need to modify this file. It is used for DOM rendering only.
 ```
 
-Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
 
 ## Backend Server
 
@@ -71,22 +74,16 @@ update(book, shelf)
 Method Signature:
 
 ```js
-search(query)
+search(query, maxResults)
 ```
 
 * query: `<String>`
-* Returns a Promise which resolves to a JSON object containing a collection of a maximum of 20 book objects.
+* maxResults: `<Integer>` Due to the nature of the backend server, search results are capped at 20, even if this is set higher.
+* Returns a Promise which resolves to a JSON object containing a collection of book objects.
 * These books do not know which shelf they are on. They are raw results only. You'll need to make sure that books have the correct state while on the search page.
 
 ## Important
 The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
 
-## Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+## Debounce for better performance
+Sometimes the user types too fast and it makes server requests as soon as the user types each search input. Instead of firing on each iteration of the search event, we can ensure it fires only every n milliseconds. Used [Debounce](https://www.npmjs.com/package/react-debounce-input) for react to implement this and improve performance
