@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import './App.css'
-import Main from './comps/MainComp'
-import Search from './comps/CompOfSearch'
+import Main from './comps/ProjectMain'
+import Search from './comps/SearchEngine'
 import ErrorPage404 from './comps/Error404'
 
 class App extends Component {
